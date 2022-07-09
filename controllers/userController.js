@@ -4,10 +4,7 @@ const mongoose = require('mongoose');
 var data = require('./../common/userFunction')
 
 async function addUser(req,res){
-    const newData= new data(
-        req.body.json()
-    )
-    newData.save(
+  data.save(
         function(Err,res1){
             if(Err == null){
                 return res.json({
