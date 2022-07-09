@@ -3,12 +3,12 @@
 const  mongoose = require('mongoose');
 
 //tables
-var UserTable = mongoose.model('UserTable')
+var UserTable = mongoose.model('UserTable');
 
 exports.data = data;
 
 //functions logic 
-async function data(req, res){
+ function data(req, res){
     // console.log('============start===========')
     // console.log(req.body);
     // console.log(req.params);
