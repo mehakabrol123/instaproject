@@ -2,7 +2,7 @@
 var mongoose = require("mongoose");
 
 //INSERT USER
-var userInsert = new mongoose.Schema(
+var userSchema = new mongoose.Schema(
   {
     Name: { type: String, required: true },
     password: {type: String},
@@ -14,4 +14,13 @@ var userInsert = new mongoose.Schema(
   },
   {timestamps: true}
 );
-module.exports = mongoose.model("UserTable", userInsert);
+
+var postSchema = new mongoose.Schema(
+  {
+    postId: {type:Number},
+    postUrl: {type: String}
+  }
+)
+module.exports = mongoose.model("UserTable", userSchema);
+module.exports = mongoose.model("postTable", postSchema);
+
