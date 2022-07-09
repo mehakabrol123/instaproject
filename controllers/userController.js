@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 var data = require('./../common/userFunction')
 
-async function addUser(req,res){
+async function userData(req,res){
   data.save(
         function(Err,res1){
             if(Err == null){
@@ -60,4 +60,11 @@ async function addUser(req,res){
 //     )
 // }
 
-exports.addUser = addUser;
+
+async function postData(req, res){
+        
+}
+
+//export function
+exports.userData = userData;
+exports.postData = postData;
