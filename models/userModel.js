@@ -10,17 +10,11 @@ var userSchema = new mongoose.Schema(
     phone: { type: Number },
     state: {type: String, default:null},
 	city: {type: String, default:null},
-    email: { type: String, lowercase: true, trim: true },
+    email: { type: String, lowercase: true, trim: true, required : [true, 'Email is required'] },
   },
   {timestamps: true}
 );
 
-var postSchema = new mongoose.Schema(
-  {
-    postId: {type:Number},
-    postUrl: {type: String}
-  }
-)
+
 module.exports = mongoose.model("UserTable", userSchema);
-module.exports = mongoose.model("postTable", postSchema);
 

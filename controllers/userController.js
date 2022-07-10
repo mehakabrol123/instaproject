@@ -1,19 +1,20 @@
 'use strict'
 const mongoose = require('mongoose');
 
-var data = require('./../common/userFunction')
+var insertData = require('./../common/userFunction')
 
 async function userData(req,res){
-  data.save(
+    const newData = await new  insertData(     
+    );
+    newData.save(
         function(Err,res1){
             if(Err == null){
-                return res.json({
+                return res1.json({
                     status: true,
                     msg: "Added Successfully",
-                    body: res1.body.json()
                 })
             }else{
-                return res.json({
+                return res1.json({
                    status: false,
                    msg: "Something went wrong..Try again after sometime"
                 })
@@ -22,49 +23,8 @@ async function userData(req,res){
     )
 } 
 
-// async function updateUser(req,res){
-//     const newData= new data ()
-//     newData.save(
-//         function(Err,res1){
-//             if(Err == null){
-//                 return res.json({
-//                     status: true,
-//                     msg: "Updated Successfully"
-//                 })
-//             }else{
-//                 return res1.json({
-//                    status: false,
-//                    msg: "Something went wrong..Try again after sometime"
-//                 })
-//             }
-//         }
-//     )
-// }
-
-// async function deleteUser(req, res){
-//     const newData= new data ()
-//     newData.save(
-//         function(Err,res1){
-//             if(Err == null){
-//                 return res.json({
-//                     status: true,
-//                     msg: "Deleted Successfully"
-//                 })
-//             }else{
-//                 return res1.json({
-//                    status: false,
-//                    msg: "Something went wrong..Try again after sometime"
-//                 })
-//             }
-//         }
-//     )
-// }
 
 
-async function postData(req, res){
-        
-}
 
 //export function
 exports.userData = userData;
-exports.postData = postData;

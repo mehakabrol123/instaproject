@@ -5,14 +5,29 @@ const  mongoose = require('mongoose');
 //tables
 var UserTable = mongoose.model('UserTable');
 
-exports.data = data;
+
+//exports
+exports.insertData = insertData;
+exports.getData = getData;
+// exports.updateData = updateData;
+// exports.deleteData = deleteData;
+
 
 //functions logic 
- function data(req, res){
-    // console.log('============start===========')
-    // console.log(req.body);
-    // console.log(req.params);
-    // console.log('============end===========')
+ function insertData(req, res){
+    const newData= new UserTable({
+        Name: "Swati ",
+        password: "swati",
+        age: 23,
+        phone: 123456789,
+        state: "Punjab",
+        city: "Ludhiana",
+        email: "swatisharma2343@gmail.com"
+    });
+    res.send(newData);
+};
+
+function getData(req, res){
     const newData= new UserTable({
         Name: req.body.Name,
         password:req.body.password,
@@ -22,9 +37,31 @@ exports.data = data;
         city: req.body.city,
         email: req.body.email
     });
-    res.send(newData);
-    
-};
+    newData.save(
+        function(Err,res1){
+            if(Err == null){
+                return res.json({
+                    status: true,
+                    msg: "Added Successfully",
+                    body: res1.body.json()
+                })
+            }else{
+                return res.json({
+                   status: false,
+                   msg: "Something went wrong..Try again after sometime"
+                })
+            }
+        }
+    )
+
+}
 
 
+// function deleteData (req,res){
+
+// }
+
+// function updateData( req, res){
+
+// }
 
