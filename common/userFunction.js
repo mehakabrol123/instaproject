@@ -1,6 +1,7 @@
 'use strict'
 
 const  mongoose = require('mongoose');
+const { db } = require('../models/userModel');
 
 //tables
 var UserTable = mongoose.model('UserTable');
@@ -8,60 +9,38 @@ var UserTable = mongoose.model('UserTable');
 
 //exports
 exports.insertData = insertData;
-exports.getData = getData;
+// exports.getData = getData;
 // exports.updateData = updateData;
 // exports.deleteData = deleteData;
 
 
 //functions logic 
  function insertData(req, res){
-    const newData= new UserTable({
-        Name: "Swati ",
-        password: "swati",
-        age: 23,
-        phone: 123456789,
-        state: "Punjab",
-        city: "Ludhiana",
-        email: "swatisharma2343@gmail.com"
-    });
-    res.send(newData);
-};
-
-function getData(req, res){
-    const newData= new UserTable({
+    const item= new UserTable({
         Name: req.body.Name,
-        password:req.body.password,
-        age:req.body.age,
+        password: req.body.password,
+        age: req.body.age,
         phone: req.body.phone,
         state: req.body.state,
         city: req.body.city,
         email: req.body.email
     });
-    newData.save(
-        function(Err,res1){
-            if(Err == null){
-                return res.json({
-                    status: true,
-                    msg: "Added Successfully",
-                    body: res1.body.json()
-                })
-            }else{
-                return res.json({
-                   status: false,
-                   msg: "Something went wrong..Try again after sometime"
-                })
-            }
-        }
-    )
+    db.collection('userData').insertOne(item,function(err, result){
+        console.log('Item inserted');
+        db.close;
+    });
+   
+};
 
-}
-
-
-// function deleteData (req,res){
-
+// function getData(req,res){
+//     var resultArray =[];
+//     var data = db.collection('userData').find();
+//     data.forEach(function(err,doc)  {
+//         resultArray.push(doc);
+//     },
+//         function(){
+//             db.close();
+           
+//         }
+//     );
 // }
-
-// function updateData( req, res){
-
-// }
-
