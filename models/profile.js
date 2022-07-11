@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const profileSchema = new mongoose.Schema(
+const usrSchema = new mongoose.Schema(
     {
         bio: {
             type:String,
@@ -11,14 +11,12 @@ const profileSchema = new mongoose.Schema(
         username: {
             type:String,
             required:[true, 'username is required'],
-        },
-        gender: {
-            type:String
         }
+        
     },
     {
         timestamps: true
     }
 );
 
-module.exports= mongoose.model('ProfileTable', profileSchema);
+module.exports= mongoose.model('ProfileTable', usrSchema);
