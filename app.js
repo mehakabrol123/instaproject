@@ -18,7 +18,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 //routes
-const routes= require('./routers/routes')
+// const routes= require('./routers/routes')
+userRout=require('./routers/routes')
 // app.use('/routes', routes);
 routes(app);
 
