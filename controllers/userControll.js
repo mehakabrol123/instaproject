@@ -1,7 +1,7 @@
 'use strict'
 
 const mongoose = require('mongoose');
-var User= mongoose.model("UserTable");
+var User= mongoose.model("table");
 // common function
 // const userModel = require('userModel');
 
