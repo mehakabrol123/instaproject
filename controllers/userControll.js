@@ -1,12 +1,10 @@
 'use strict'
-
 const mongoose = require('mongoose');
-var User= mongoose.model("table");
+var User = mongoose.model("table");
 // common function
 // const userModel = require('userModel');
 
 
-exports.insertUser = insertUser;
 // exports.fetchUser= fetchUser;
 // exports.fetchSingleUser= fetchSingleUser;
 
@@ -29,6 +27,8 @@ const insertUser = async (req, res) => {
         res.send('Error',+ err);
     }
 }
+
+exports.insertUser = insertUser;
 
 //fetching user
 // async function fetchUser(req,res){
