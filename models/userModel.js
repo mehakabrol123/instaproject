@@ -4,9 +4,9 @@ var mongoose = require("mongoose");
 //INSERT USER
 var userSchema = new mongoose.Schema(
   {
-    Name: { type: String, required: true },
+    name: { type: String, required: true },
     password: {type: String},
-    phonenumber: { type: Number },
+    phoneNumber: { type: Number },
     state: {type: String, default:null},
     email: { type: String, lowercase: true, trim: true, required : [true, 'Email is required'] }
   },

@@ -1,12 +1,6 @@
 'use strict'
-
-
-
-// const User = require('../models/userModel')
-
 module.exports = function(app){
-    var user = require('../controllers/userControll'
-    )
+    var user = require('../controllers/userControll');
     //post query
     app.route('/adduser').post(user.insertUser);
     // app.route('/user').get(user.fetchUser);

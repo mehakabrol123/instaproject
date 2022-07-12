@@ -11,18 +11,19 @@ exports.insertUser = insertUser;
 // exports.fetchSingleUser= fetchSingleUser;
 
 
-async function insertUser(req,res){
-    const user = new User  ({
-        Name: req.body.name,
-        password: req.body.password,
-        phone: req.body.phone,
-        state: req.body.state,
-        email: req.body.email
-    })
-   // user.save()
+const insertUser = async (req, res) => {
     try{
-        const x= await user.save()
-        res.json(x)
+        const data = {
+            name: req.body.name,
+            password: req.body.password,
+            phoneNumber: req.body.phone,
+            state: req.body.state,
+            email: req.body.email,
+        }
+    
+        const newUser = new User(data);
+        const result = await newUser.save()
+        res.send(result);
 
     }catch (err){
         res.send('Error',+ err);
