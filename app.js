@@ -8,7 +8,6 @@ const url = 'mongodb://localhost/nserver';
 userMdl= require('./models/userModel')
 userCtl= require('./controllers/userControll')
 
-
 mongoose.connect(url);
 var path = __dirname;
 app.use('/server/data', express.static(path + '/data'));

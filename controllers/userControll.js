@@ -2,9 +2,12 @@
 
 const mongoose = require('mongoose');
 var User= mongoose.model("UserTable");
+// common function
+// const userModel = require('userModel');
+
 
 exports.insertUser = insertUser;
-exports.fetchUser= fetchUser;
+// exports.fetchUser= fetchUser;
 // exports.fetchSingleUser= fetchSingleUser;
 
 
@@ -27,21 +30,13 @@ async function insertUser(req,res){
 }
 
 //fetching user
-async function fetchUser(req,res){
-        try{
-            const y = await User.find()
-            res.json(y);
-        }catch(err){
-            res.send('Error',+ err);
-        }
-}
-
-// async function updateUser(req,res){
-//     try{
-        
-//     }catch(err){
-
-//     }
+// async function fetchUser(req,res){
+//         try{
+//             const y = await User.find()
+//             res.json(y);
+//         }catch(err){
+//             res.send('Error',+ err);
+//         }
 // }
 
 
