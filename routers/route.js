@@ -10,6 +10,7 @@ module.exports = function(app){
     )
     //post query
     app.route('/addUser').post(user.insertUser);
+    app.route('/user').get(user.fetchUser);
 
     //get query
     // app.route('/user').get(user.fetchUser);
