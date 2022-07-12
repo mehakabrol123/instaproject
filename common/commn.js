@@ -1,4 +1,4 @@
-'use strict'
+// 'use strict'
 // const mongoose = require('mongoose');
 
 
@@ -15,16 +15,16 @@
 //     }
 // }
 
-exports.insertUser=insertUser;
-const userModel = require('userModel');
-async function insertUser(req,res){
-    const user = new User  ({
-        Name: req.body.name,
-        password: req.body.password,
-        phone: req.body.phone,
-        state: req.body.state,
-        email: req.body.email
-    })
-}
+// exports.insertUser=insertUser;
+// const userModel = require('userModel');
+// async function insertUser(req,res){
+//     const user = new User  ({
+//         Name: req.body.name,
+//         password: req.body.password,
+//         phone: req.body.phone,
+//         state: req.body.state,
+//         email: req.body.email
+//     })
+// }
 
 // module.exports(userModel);
